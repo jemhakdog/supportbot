@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>supportbot — F</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    background-color: #dfe4de;
+    color: #141715;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 64px 84px 96px;
+  }
+  .mark {
+    font-size: 76px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0 0 30px;
+  }
+  .declare {
+    font-size: 25px;
+    line-height: 1.55;
+    max-width: 46ch;
+    margin: 0 0 52px;
+  }
+  .vocabulary {
+    font-size: 13.5px;
+    letter-spacing: 0.05em;
+    line-height: 2.2;
+    max-width: 74ch;
+    margin: 0;
+  }
+  .gate {
+    margin-top: 76px;
+  }
+  .gate-label {
+    font-family: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.18em;
+    margin: 0 0 18px;
+  }
+  .gate-read {
+    display: flex;
+    align-items: baseline;
+    gap: 34px;
+    margin: 0 0 26vh;
+  }
+  .gate-figure {
+    font-family: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+    font-size: 168px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 0.84;
+  }
+  .gate-range {
+    font-family: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+  }
+  .held {
+    color: #0d6a62;
+  }
+  .held .declare {
+    margin-bottom: 44px;
+  }
+  .states {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 2;
+    max-width: 66ch;
+    margin: 0 0 36px;
+  }
+  .settings {
+    font-size: 14.5px;
+    line-height: 1.9;
+    max-width: 72ch;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <p class="mark">supportbot</p>
+    <p class="declare">This application automates frontline customer support while preventing hallucinations.</p>
+    <p class="vocabulary">Inbox · Knowledge · Settings · Support inbox · Knowledge base · Customer message · Draft reply · Critic breakdown · Retrieved sources · Ticket · Category · Urgency · Confidence · Status · Billing · Bug · Return · General · Document · Chunks · Added</p>
+  </header>
+
+  <section class="gate">
+    <p class="gate-label">MINIMUM CONFIDENCE TO BE "READY TO SEND" (%)</p>
+    <p class="gate-read"><span class="gate-figure">60</span><span class="gate-range">confidence 0-100%</span></p>
+  </section>
+
+  <section class="held">
+    <p class="declare">If the answer contains errors or lacks evidence, the agent rewrites it before a human approves or dispatches it.</p>
+    <p class="states">All · Ready to send · Low confidence · Needs human · Approved · Knowledge gaps · processing · No tickets in this view.</p>
+    <p class="settings">Triage it · Approve &amp; send · Save edit · Reject · Re-run triage · Queue 4 sample tickets · Minimum confidence to be "ready to send" (%) 60 · confidence 0-100% · $0 · SQLite FTS5</p>
+  </section>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Knowledge · supportbot{% endblock %}
+{% block content %}
+<h1 class="mb-4 text-xl font-bold text-white">Knowledge base</h1>
+
+{% if added %}
+<div class="mb-4 rounded border border-emerald-800 bg-emerald-950/50 px-4 py-3 text-sm text-emerald-200">
+  Indexed {{ added }} chunk{{ '' if added == 1 else 's' }}.
+</div>
+{% endif %}
+
+<form method="post" enctype="multipart/form-data" class="mb-6 space-y-3 rounded border border-slate-800 p-4">
+  <input name="title" placeholder="Document title (e.g. Shipping policy)"
+         class="w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-white">
+  <textarea name="text" rows="6" placeholder="Paste FAQ / policy text — blank lines separate chunks…"
+            class="w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-white"></textarea>
+  <div class="flex flex-wrap items-center gap-3">
+    <input type="file" name="file" accept=".txt,.md,.markdown,.csv,.json"
+           class="text-sm text-slate-400">
+    <button class="rounded bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-500">Index</button>
+    <button name="sample" value="1" class="rounded border border-slate-700 px-4 py-2 text-sm hover:bg-slate-900">
+      Load sample store FAQ</button>
+  </div>
+  <p class="text-xs text-slate-500">Text/Markdown only. PDF/OCR ingestion is Phase 2 (BUILD §5).</p>
+</form>
+
+<div class="overflow-hidden rounded border border-slate-800">
+  <table class="w-full text-sm">
+    <thead class="bg-slate-900 text-left text-slate-400">
+      <tr><th class="px-3 py-2">Document</th><th class="px-3 py-2">Chunks</th><th class="px-3 py-2">Added</th></tr>
+    </thead>
+    <tbody>
+      {% for d in docs %}
+      <tr class="border-t border-slate-800">
+        <td class="px-3 py-2 text-white">{{ d['title'] }}</td>
+        <td class="px-3 py-2 text-slate-300">{{ d['n'] }}</td>
+        <td class="px-3 py-2 text-slate-400">{{ d['added_at'] }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="3" class="px-3 py-6 text-center text-slate-500">Nothing indexed yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

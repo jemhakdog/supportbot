@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Ticket #{{ t['id'] }} · supportbot{% endblock %}
+{% block content %}
+<div class="mb-4 flex items-center gap-3">
+  <a href="{{ url_for('index') }}" class="text-sm text-slate-400 hover:text-white">← inbox</a>
+  <h1 class="text-xl font-bold text-white">Ticket #{{ t['id'] }}</h1>
+  <span class="rounded border border-slate-700 px-2 py-0.5 text-xs text-slate-300">{{ t['category'] }}</span>
+  <span class="rounded border border-slate-700 px-2 py-0.5 text-xs {% if t['urgency'] == 'high' %}text-amber-400{% else %}text-slate-300{% endif %}">{{ t['urgency'] }}</span>
+  <span class="rounded border border-slate-700 px-2 py-0.5 text-xs text-slate-300">{{ t['sentiment'] }}</span>
+  <button onclick="post('/tickets/{{ t['id'] }}/rerun')" class="ml-auto rounded border border-slate-700 px-3 py-1 text-sm hover:bg-slate-900">Re-run triage</button>
+</div>
+
+<div id="processing" class="{% if t['status'] != 'processing' %}hidden{% endif %} mb-4 space-y-2 rounded border border-slate-800 p-4">
+  <div class="h-4 w-1/3 animate-pulse rounded bg-slate-700"></div>
+  <div class="h-4 w-full animate-pulse rounded bg-slate-700"></div>
+  <div class="h-4 w-2/3 animate-pulse rounded bg-slate-700"></div>
+  <p class="text-xs text-slate-500">Retrieving docs and drafting…</p>
+</div>
+
+<div id="result" class="{% if t['status'] == 'processing' %}hidden{% endif %} space-y-4">
+  <div class="rounded border border-slate-800 p-4">
+    <h2 class="mb-2 text-sm font-semibold text-slate-400">Customer message</h2>
+    <p class="whitespace-pre-wrap text-white">{{ t['body'] }}</p>
+  </div>
+
+  <div class="rounded border border-slate-800 p-4">
+    <div class="mb-2 flex items-center gap-3">
+      <h2 class="text-sm font-semibold text-slate-400">Draft reply</h2>
+      <span class="text-xs text-slate-500">
+        confidence {{ (t['confidence'] * 100) | round(0) | int }}% ·
+        {{ t['n_sources'] }} source{{ '' if t['n_sources'] == 1 else 's' }} ·
+        status <b class="text-slate-300">{{ t['status'] }}</b>
+      </span>
+    </div>
+    <form method="post" action="{{ url_for('review', ticket_id=t['id']) }}" class="space-y-3">
+      <textarea name="reply" rows="7"
+                class="w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-white">{{ t['reply'] or t['draft'] }}</textarea>
+      <div class="flex gap-2">
+        <button name="action" value="approve" class="rounded bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-500">Approve &amp; send</button>
+        <button name="action" value="save" class="rounded border border-slate-700 px-4 py-2 text-sm hover:bg-slate-900">Save edit</button>
+        <button name="action" value="reject" class="rounded border border-red-800 px-4 py-2 text-sm text-red-300 hover:bg-red-950">Reject</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="rounded border border-slate-800 p-4">
+    <h2 class="mb-2 text-sm font-semibold text-slate-400">Critic breakdown (non-LLM n-gram check)</h2>
+    <ul class="space-y-1 text-sm">
+      {% for c in critic %}
+      <li class="flex gap-2">
+        <span class="{% if c['supported'] is none %}text-slate-500{% elif c['supported'] %}text-emerald-400{% else %}text-red-400{% endif %}">
+          {% if c['supported'] is none %}—{% elif c['supported'] %}✓{{ c['matched'] }}{% else %}✗{% endif %}</span>
+        <span class="text-slate-300">{{ c['sentence'] }}</span>
+      </li>
+      {% else %}
+      <li class="text-slate-500">No draft scored yet.</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="rounded border border-slate-800 p-4">
+    <h2 class="mb-2 text-sm font-semibold text-slate-400">Retrieved sources</h2>
+    {% for c in citations %}
+    <div class="mb-2 text-sm">
+      <span class="text-sky-400">[{{ c['n'] }}]</span>
+      <span class="text-xs text-slate-500">{{ c['doc'] }}</span>
+      <p class="whitespace-pre-wrap text-slate-300">{{ c['text'] }}</p>
+    </div>
+    {% else %}
+    <p class="text-sm text-slate-500">Nothing retrieved — knowledge gap logged.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% if t['status'] == 'processing' %}
+<script>
+  const poll = setInterval(async () => {
+    const j = await (await fetch('/tickets/{{ t['id'] }}.json')).json();
+    if (j.status && j.status !== 'processing') {
+      clearInterval(poll);
+      location.reload();
+    }
+  }, 2000);
+</script>
+{% endif %}
+{% endblock %}

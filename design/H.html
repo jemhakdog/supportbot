@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>supportbot — H</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    background-color: #d9dde5;
+    color: #15171c;
+    font-family: Georgia, "Times New Roman", serif;
+    padding: 62px 88px 90px;
+    text-align: right;
+  }
+  .mark {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin: 0 0 36px;
+  }
+  .declare-a {
+    font-size: 27px;
+    line-height: 1.5;
+    max-width: 40ch;
+    margin: 0 0 18px auto;
+  }
+  .declare-b {
+    font-size: 27px;
+    line-height: 1.5;
+    max-width: 40ch;
+    margin: 0 0 0 auto;
+  }
+  .catalog {
+    color: #545a63;
+    font-family: Verdana, Geneva, sans-serif;
+    margin-top: 76px;
+  }
+  .vocabulary {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    line-height: 2.4;
+    max-width: 64ch;
+    margin: 0 0 30px auto;
+  }
+  .states {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    line-height: 2.2;
+    max-width: 58ch;
+    margin: 0 0 26px auto;
+  }
+  .settings {
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    line-height: 2.1;
+    max-width: 60ch;
+    margin: 0 0 0 auto;
+  }
+  .verbs {
+    color: #a3182e;
+    font-family: Verdana, Geneva, sans-serif;
+    margin-top: 74px;
+  }
+  .verbs p {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.24;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <p class="mark">supportbot</p>
+    <p class="declare-a">This application automates frontline customer support while preventing hallucinations.</p>
+    <p class="declare-b">If the answer contains errors or lacks evidence, the agent rewrites it before a human approves or dispatches it.</p>
+  </header>
+
+  <section class="catalog">
+    <p class="vocabulary">Inbox · Knowledge · Settings · Support inbox · Knowledge base · Customer message · Draft reply · Critic breakdown · Retrieved sources · Ticket · Category · Urgency · Confidence · Status · Billing · Bug · Return · General · Document · Chunks · Added</p>
+    <p class="states">All · Ready to send · Low confidence · Needs human · Approved · Knowledge gaps · processing · No tickets in this view.</p>
+    <p class="settings">Minimum confidence to be "ready to send" (%) 60 · confidence 0-100% · $0 · SQLite FTS5</p>
+  </section>
+
+  <section class="verbs">
+    <p>Triage it</p>
+    <p>Approve &amp; send</p>
+    <p>Save edit</p>
+    <p>Reject</p>
+    <p>Re-run triage</p>
+    <p>Queue 4 sample tickets</p>
+  </section>
+</body>
+</html>

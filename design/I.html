@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>supportbot — I</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    background-color: #eae5cc;
+    color: #171416;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    line-height: 2.05;
+    padding: 70px 88px 90px;
+  }
+  p {
+    max-width: 64ch;
+    margin: 0;
+  }
+  .mark {
+    font-weight: 700;
+    letter-spacing: 0.42em;
+    margin: 0 0 46px;
+  }
+  .lead {
+    margin-bottom: 30px;
+    text-align: justify;
+  }
+  .claim {
+    margin-bottom: 50px;
+    text-align: justify;
+  }
+  .vocabulary {
+    margin-bottom: 46px;
+  }
+  .states {
+    margin-bottom: 42px;
+  }
+  .machine { color: #1f5b8f; }
+  .doubt { color: #6e5505; }
+  .human { color: #9c1f3d; }
+</style>
+</head>
+<body>
+  <p class="mark">supportbot</p>
+
+  <p class="lead">This application automates frontline customer support while preventing hallucinations.</p>
+
+  <p class="claim"><span class="doubt">If the answer contains errors or lacks evidence,</span> <span class="machine">the agent rewrites it</span> <span class="human">before a human approves or dispatches it.</span></p>
+
+  <p class="vocabulary">Inbox · Knowledge · Settings · Support inbox · Knowledge base · <span class="machine">Customer message</span> · <span class="machine">Draft reply</span> · <span class="doubt">Critic breakdown</span> · <span class="machine">Retrieved sources</span> · Ticket · Category · Urgency · <span class="doubt">Confidence</span> · Status · <span class="machine">Billing</span> · <span class="machine">Bug</span> · <span class="machine">Return</span> · <span class="machine">General</span> · <span class="machine">Document</span> · <span class="machine">Chunks</span> · <span class="machine">Added</span></p>
+
+  <p class="states">All · <span class="machine">Ready to send</span> · <span class="doubt">Low confidence</span> · <span class="human">Needs human</span> · <span class="human">Approved</span> · <span class="doubt">Knowledge gaps</span> · <span class="machine">processing</span> · No tickets in this view.</p>
+
+  <p class="settings"><span class="machine">Triage it</span> · <span class="human">Approve &amp; send</span> · <span class="human">Save edit</span> · <span class="human">Reject</span> · <span class="machine">Re-run triage</span> · <span class="machine">Queue 4 sample tickets</span> · Minimum confidence to be "ready to send" (%) 60 · confidence 0-100% · $0 · <span class="machine">SQLite FTS5</span></p>
+</body>
+</html>

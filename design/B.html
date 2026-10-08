@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>supportbot — B</title>
+<style>
+html {
+  background-color: #e6e9ec;
+}
+body {
+  margin: 0;
+  padding: 62px 70px 100px;
+  color: #101316;
+  font-family: Helvetica, Arial, "Helvetica Neue", sans-serif;
+}
+h1 {
+  margin: 0 0 34px;
+  font-size: 88px;
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+}
+.lead {
+  margin: 0 0 58px;
+  max-width: 41ch;
+  font-size: 25px;
+  line-height: 1.44;
+}
+.vocab {
+  margin: 0 0 20px;
+  max-width: 74ch;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+  line-height: 2.5;
+}
+.notes {
+  margin: 0 0 78px;
+  max-width: 64ch;
+  font-size: 14.5px;
+  line-height: 1.9;
+}
+.state {
+  margin: 0;
+  color: #8c3316;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+}
+.i1 { margin-left: 0; }
+.i2 { margin-left: 7%; }
+.i3 { margin-left: 14%; }
+.i4 { margin-left: 21%; }
+.i5 { margin-left: 28%; }
+.i6 { margin-left: 35%; }
+.i7 { margin-left: 42%; }
+.i8 { margin-left: 49%; }
+</style>
+</head>
+<body>
+<h1>supportbot</h1>
+
+<p class="lead">This application automates frontline customer support while preventing hallucinations. If the answer contains errors or lacks evidence, the agent rewrites it before a human approves or dispatches it.</p>
+
+<p class="vocab">INBOX · KNOWLEDGE · SETTINGS · SUPPORT INBOX · KNOWLEDGE BASE · CUSTOMER MESSAGE · DRAFT REPLY · CRITIC BREAKDOWN · RETRIEVED SOURCES · TICKET · CATEGORY · URGENCY · CONFIDENCE · STATUS · BILLING · BUG · RETURN · GENERAL · DOCUMENT · CHUNKS · ADDED</p>
+
+<p class="notes">Triage it · Approve &amp; send · Save edit · Reject · Re-run triage · Queue 4 sample tickets · Minimum confidence to be "ready to send" (%) 60 · confidence 0-100% · $0 · SQLite FTS5</p>
+
+<p class="state i1">All</p>
+<p class="state i2">Ready to send</p>
+<p class="state i3">Low confidence</p>
+<p class="state i4">Needs human</p>
+<p class="state i5">Approved</p>
+<p class="state i6">Knowledge gaps</p>
+<p class="state i7">processing</p>
+<p class="state i8">No tickets in this view.</p>
+</body>
+</html>

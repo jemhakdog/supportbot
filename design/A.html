@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>supportbot — A</title>
+<style>
+html {
+  background-color: #efece2;
+}
+body {
+  margin: 0;
+  padding: 54px 72px 104px;
+  color: #17150f;
+  font-family: "Courier New", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 17px;
+  line-height: 1.55;
+}
+h1 {
+  margin: 0 0 42px;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 0.48em;
+}
+.purpose {
+  margin: 0 0 74px calc(18ch + 34px);
+  max-width: 54ch;
+}
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 34px;
+  margin: 0 0 36px;
+}
+.k {
+  flex: 0 0 18ch;
+  text-align: right;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.v {
+  flex: 1 1 auto;
+  max-width: 58ch;
+}
+.fig {
+  font-size: 27px;
+  line-height: 1.1;
+}
+</style>
+</head>
+<body>
+<h1>supportbot</h1>
+
+<p class="purpose">This application automates frontline customer support while preventing hallucinations. If the answer contains errors or lacks evidence, the agent rewrites it before a human approves or dispatches it.</p>
+
+<p class="row"><span class="k">Inbox</span><span class="v">Support inbox · All · Ready to send · Low confidence · Needs human · Approved · Knowledge gaps · processing · Queue <span class="fig">4</span> sample tickets</span></p>
+
+<p class="row"><span class="k">Knowledge</span><span class="v">Knowledge base · Document · Chunks · Added</span></p>
+
+<p class="row"><span class="k">Settings</span><span class="v">Minimum confidence to be "ready to send" (%) <span class="fig">60</span> · confidence <span class="fig">0-100%</span> · <span class="fig">$0</span> · SQLite <span class="fig">FTS5</span></span></p>
+
+<p class="row"><span class="k">Ticket</span><span class="v">Category · Urgency · Confidence · Status · Customer message · Critic breakdown · Retrieved sources · No tickets in this view.</span></p>
+
+<p class="row"><span class="k">Category</span><span class="v">Billing · Bug · Return · General</span></p>
+
+<p class="row"><span class="k">Draft reply</span><span class="v">Triage it · Approve &amp; send · Save edit · Reject · Re-run triage</span></p>
+</body>
+</html>

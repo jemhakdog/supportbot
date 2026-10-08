@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>supportbot — J</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    background-color: #d6d1c4;
+    color: #15140f;
+    font-family: Georgia, "Times New Roman", serif;
+    padding: 70px 84px 90px;
+  }
+  .mark {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 36px;
+  }
+  .sentence {
+    font-size: 24px;
+    line-height: 1.6;
+    max-width: 52ch;
+    margin: 0 0 26px;
+  }
+  .index {
+    display: flex;
+    gap: 64px;
+    margin-top: 78px;
+    color: #4a3f8f;
+  }
+  .column {
+    flex: 1 1 0;
+    font-family: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+    font-size: 13.5px;
+    line-height: 1.95;
+    letter-spacing: 0.06em;
+  }
+  .column ul {
+    list-style: none;
+    margin: 0 0 36px;
+    padding: 0;
+  }
+  .column ul:last-child {
+    margin-bottom: 0;
+  }
+  .column li {
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <p class="mark">supportbot</p>
+  <p class="sentence">This application automates frontline customer support while preventing hallucinations.</p>
+  <p class="sentence">If the answer contains errors or lacks evidence, the agent rewrites it before a human approves or dispatches it.</p>
+
+  <div class="index">
+    <div class="column">
+      <ul>
+        <li>INBOX · KNOWLEDGE ·</li>
+        <li>SETTINGS · SUPPORT INBOX ·</li>
+        <li>KNOWLEDGE BASE · CUSTOMER MESSAGE ·</li>
+        <li>DRAFT REPLY · CRITIC BREAKDOWN ·</li>
+        <li>RETRIEVED SOURCES · TICKET ·</li>
+        <li>CATEGORY · URGENCY ·</li>
+        <li>CONFIDENCE · STATUS ·</li>
+        <li>BILLING · BUG ·</li>
+        <li>RETURN · GENERAL ·</li>
+        <li>DOCUMENT · CHUNKS ·</li>
+        <li>ADDED</li>
+      </ul>
+    </div>
+
+    <div class="column">
+      <ul>
+        <li>ALL · READY TO SEND ·</li>
+        <li>LOW CONFIDENCE · NEEDS HUMAN ·</li>
+        <li>APPROVED · KNOWLEDGE GAPS ·</li>
+        <li>PROCESSING · NO TICKETS IN THIS VIEW.</li>
+      </ul>
+      <ul>
+        <li>TRIAGE IT · APPROVE &amp; SEND ·</li>
+        <li>SAVE EDIT · REJECT ·</li>
+        <li>RE-RUN TRIAGE · QUEUE 4 SAMPLE TICKETS ·</li>
+        <li>MINIMUM CONFIDENCE TO BE "READY TO SEND" (%) 60 ·</li>
+        <li>CONFIDENCE 0-100% · $0 · SQLITE FTS5</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

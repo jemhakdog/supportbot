@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>supportbot — C</title>
+<style>
+html {
+  background-color: #14161a;
+}
+body {
+  margin: 0;
+  padding: 58px 78px 88px 56px;
+  color: #ece7db;
+  font-family: Georgia, "Times New Roman", serif;
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+}
+.rail {
+  flex: 0 0 auto;
+  height: 76vh;
+  color: #8fa2b0;
+  font-size: 13px;
+  letter-spacing: 0.26em;
+  line-height: 2.7;
+}
+.field {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+h1 {
+  margin: 0 0 30px;
+  font-size: 58px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.lead {
+  margin: 0 0 66px;
+  max-width: 43ch;
+  font-size: 25px;
+  font-style: italic;
+  line-height: 1.7;
+}
+.states {
+  margin: 0 0 54px;
+  max-width: 34ch;
+  color: #e5a13a;
+  font-size: 31px;
+  line-height: 1.62;
+}
+.actions {
+  margin: 0 0 62px;
+  max-width: 36ch;
+  color: #e5a13a;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  line-height: 1.75;
+}
+.figures {
+  margin: 0;
+  max-width: 58ch;
+  color: #8fa2b0;
+  font-size: 14.5px;
+  letter-spacing: 0.12em;
+  line-height: 2.1;
+}
+</style>
+</head>
+<body>
+<div class="rail">INBOX · KNOWLEDGE · SETTINGS · SUPPORT INBOX · KNOWLEDGE BASE · CUSTOMER MESSAGE · DRAFT REPLY · CRITIC BREAKDOWN · RETRIEVED SOURCES · TICKET · CATEGORY · URGENCY · CONFIDENCE · STATUS · BILLING · BUG · RETURN · GENERAL · DOCUMENT · CHUNKS · ADDED</div>
+
+<div class="field">
+  <h1>supportbot</h1>
+
+  <p class="lead">This application automates frontline customer support while preventing hallucinations. If the answer contains errors or lacks evidence, the agent rewrites it before a human approves or dispatches it.</p>
+
+  <p class="states">All · Ready to send · Low confidence · Needs human · Approved · Knowledge gaps · processing · No tickets in this view.</p>
+
+  <p class="actions">Triage it · Approve &amp; send · Save edit · Reject · Re-run triage · Queue 4 sample tickets</p>
+
+  <p class="figures">Minimum confidence to be "ready to send" (%) 60 · confidence 0-100% · $0 · SQLite FTS5</p>
+</div>
+</body>
+</html>

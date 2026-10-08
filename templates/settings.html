@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Settings · supportbot{% endblock %}
+{% block content %}
+<h1 class="mb-4 text-xl font-bold text-white">Settings</h1>
+
+<form method="post" class="max-w-xl space-y-4 rounded border border-slate-800 p-4">
+  <h2 class="font-semibold text-white">AI (BYOK — your key, your bill)</h2>
+  <div>
+    <label class="block text-sm text-slate-400">Base URL (OpenAI-compatible)</label>
+    <input name="ai_base_url" value="{{ s.ai_base_url }}" placeholder="https://api.openai.com/v1"
+           class="mt-1 w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-white">
+  </div>
+  <div>
+    <label class="block text-sm text-slate-400">API key</label>
+    <input name="ai_api_key" value="" type="password" autocomplete="off"
+           placeholder="{{ 'key saved — leave blank to keep' if key_saved else 'paste your key' }}"
+           class="mt-1 w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-white">
+  </div>
+  <div>
+    <label class="block text-sm text-slate-400">Model</label>
+    <input name="ai_model" value="{{ s.ai_model }}" placeholder="gpt-4o-mini"
+           class="mt-1 w-full rounded border border-slate-700 bg-slate-900 px-3 py-2 text-white">
+  </div>
+  <div>
+    <label class="block text-sm text-slate-400">Minimum confidence to be "ready to send" (%)</label>
+    <input name="min_confidence" value="{{ s.min_confidence or 60 }}" inputmode="numeric"
+           class="mt-1 w-32 rounded border border-slate-700 bg-slate-900 px-3 py-2 text-white">
+  </div>
+  <p class="text-xs text-slate-500">
+    No key set? Drafts fall back to quoting the retrieved FAQ paragraph verbatim — the app still
+    works end to end at $0. Ollama: base URL <code>http://localhost:11434/v1</code>, key <code>ollama</code>.
+  </p>
+  <div class="flex gap-2">
+    <button class="rounded bg-sky-600 px-4 py-2 font-medium text-white hover:bg-sky-500">Save</button>
+    <button type="button" onclick="post('/settings/test').then(j=>{})"
+            class="rounded border border-slate-700 px-4 py-2 hover:bg-slate-900">Test connection</button>
+  </div>
+</form>
+{% endblock %}
